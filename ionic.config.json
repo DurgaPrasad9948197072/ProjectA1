@@ -1,0 +1,7 @@
+{
+  "name": "Mixed",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
