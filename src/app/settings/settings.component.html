@@ -1,0 +1,41 @@
+<app-header></app-header>
+<ion-content class="dark-theme ion-padding">
+  <section class="settings-navigation">
+    <ion-list>
+      <ion-item button (click)="selectSection('account')" [class.active]="isSectionActive('account')">
+        Account Settings
+      </ion-item>
+      <ion-item button (click)="selectSection('billing')" [class.active]="isSectionActive('billing')">
+        Billing & Payments
+      </ion-item>
+      <ion-item button (click)="selectSection('orders')" [class.active]="isSectionActive('orders')">
+        Order History
+      </ion-item>
+      <ion-item button (click)="selectSection('privacy')" [class.active]="isSectionActive('privacy')">
+        Privacy & Security
+      </ion-item>
+    </ion-list>
+  </section>
+
+  <section class="settings-content">
+    <div *ngIf="isSectionActive('account')">
+      <h2>Account Settings</h2>
+      <p>Update your account details, username, and more.</p>
+    </div>
+
+    <div *ngIf="isSectionActive('billing')">
+      <h2>Billing & Payments</h2>
+      <p>Manage your billing information, payment methods, and transactions.</p>
+    </div>
+
+    <div *ngIf="isSectionActive('orders')">
+      <h2>Order History</h2>
+      <p>View your past orders and download invoices.</p>
+    </div>
+
+    <div *ngIf="isSectionActive('privacy')">
+      <h2>Privacy & Security</h2>
+      <p>Control your privacy settings, manage two-factor authentication, and more.</p>
+    </div>
+  </section>
+</ion-content>

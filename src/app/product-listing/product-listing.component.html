@@ -1,0 +1,51 @@
+<app-header></app-header>
+<ion-content class="ion-padding dark-theme">
+
+  <ion-searchbar placeholder="Search Templates" [(ngModel)]="searchQuery"></ion-searchbar>
+
+  <!-- Categories/Filters Section -->
+  <div class="filters-section">
+    <ion-chip *ngFor="let category of categories" [outline]="selectedCategory !== category" (click)="selectCategory(category)">
+      <ion-label>{{ category }}</ion-label>
+    </ion-chip>
+  </div>
+
+  <!-- Grid/List Toggle -->
+  <div class="view-toggle">
+    <ion-button  (click)="toggleView('grid')" [color]="currentView === 'grid' ? 'light' : 'medium'">
+      <ion-icon name="grid-outline"></ion-icon>    
+    </ion-button>
+    <ion-button  (click)="toggleView('list')" [color]="currentView === 'list' ? 'light' : 'medium'">
+      <ion-icon name="list-outline"></ion-icon>
+    </ion-button>
+  </div>
+
+  <!-- Template Listing Section -->
+    <ion-grid *ngIf="currentView === 'grid'">
+      <ion-row>
+        <ion-col size="12" size-md="6" size-lg="4" *ngFor="let template of filteredTemplates">
+          <div class="template-card grid-view">
+            <img [src]="template.image" alt="{{ template.name }}" class="template-image" />
+            <h3 class="template-name">{{ template.name }}</h3>
+            <p class="template-price">{{ template.price | currency }}</p>
+            <ion-button expand="block" color="light" (click)="RedirectproductDetails(template.id)">View Details</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  <ion-list *ngIf="currentView === 'list'">
+    <ion-item *ngFor="let template of filteredTemplates" class="template-card list-view">
+      <ion-thumbnail slot="start">
+        <img [src]="template.image" alt="{{ template.name }}" />
+      </ion-thumbnail>
+      <ion-label>
+        <h3>{{ template.name }}</h3>
+        <p>{{ template.price | currency }}</p>
+      </ion-label>
+      <ion-button  color="light" (click)="RedirectproductDetails(template.id)">View</ion-button>
+    </ion-item>
+  </ion-list>
+  
+  <app-footer></app-footer>
+</ion-content>

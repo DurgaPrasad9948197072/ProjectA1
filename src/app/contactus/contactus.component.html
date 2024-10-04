@@ -1,0 +1,75 @@
+<app-header></app-header>
+
+<ion-content class="dark-theme ion-padding">
+  <section class="contact-form-section">
+    <h2 class="section-title">Get in Touch</h2>
+    <p class="section-description">Feel free to send us any questions, comments, or feedback. We’d love to hear from you!</p>
+
+    <!-- Contact Form -->
+    <form (ngSubmit)="submitContactForm()">
+      <ion-item>
+        <ion-label position="floating">Your Name</ion-label>
+        <ion-input type="text" [(ngModel)]="contactForm.name" name="name" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Your Email</ion-label>
+        <ion-input type="email" [(ngModel)]="contactForm.email" name="email" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Your Message</ion-label>
+        <ion-textarea [(ngModel)]="contactForm.message" name="message" rows="6" required></ion-textarea>
+      </ion-item>
+
+      <ion-button expand="block" color="primary" type="submit">Submit</ion-button>
+    </form>
+
+    <!-- Success Message -->
+    <div *ngIf="formSubmitted" class="success-message">
+      <p>Thank you for your message! We will get back to you soon.</p>
+    </div>
+  </section>
+
+    <!-- Location Map Section -->
+    <section class="location-map-section">
+      <h2 class="section-title">Our Location</h2>
+      <p class="section-description">You can find us here! Visit our office at any time for inquiries.</p>
+  
+      <!-- Embedded Google Map -->
+      <div class="map-container">
+        <iframe
+          class="location-map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.9150115974415!2d-122.42067948468164!3d37.77492967975808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808c5fdfd1df%3A0x4044db1a78a93a51!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1618242872373!5m2!1sen!2sin"
+          frameborder="0"
+          allowfullscreen
+          aria-hidden="false"
+          tabindex="0"
+        ></iframe>
+      </div>
+    </section>
+
+      <!-- Social Media Links Section -->
+  <section class="social-media-section">
+    <h2 class="section-title">Follow Us on Social Media</h2>
+    <p class="section-description">Stay connected with us through social media for the latest updates and promotions!</p>
+
+    <!-- Social Media Icons -->
+    <div class="social-media-links">
+      <ion-button fill="clear" href="https://facebook.com" target="_blank" class="social-icon">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" href="https://twitter.com" target="_blank" class="social-icon">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" href="https://instagram.com" target="_blank" class="social-icon">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" href="https://linkedin.com" target="_blank" class="social-icon">
+        <ion-icon name="logo-linkedin"></ion-icon>
+      </ion-button>
+    </div>
+  </section>
+
+  <app-footer></app-footer>
+</ion-content>

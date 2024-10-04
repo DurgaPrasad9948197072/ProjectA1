@@ -1,0 +1,65 @@
+<app-header></app-header>
+
+<ion-content class="dark-theme ion-padding">
+  <!-- Team Introduction Section -->
+  <section class="team-section">
+    <h2 class="section-title">Meet Our Team</h2>
+    <p class="section-description">We are a group of passionate professionals committed to delivering the best for our clients.</p>
+
+    <!-- Team Members Grid -->
+    <div class="team-grid">
+      <div class="team-member" *ngFor="let member of teamMembers">
+        <img [src]="member.photo" alt="{{ member.name }}" class="team-photo" />
+        <h3 class="team-name">{{ member.name }}</h3>
+        <p class="team-role">{{ member.role }}</p>
+        <p class="team-bio">{{ member.bio }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision and Mission Statement Section -->
+  <section class="vision-mission-section">
+    <h2 class="section-title">Our Vision & Mission</h2>
+    
+    <!-- Vision Statement -->
+    <div class="vision-statement">
+      <h3 class="statement-title">Our Vision</h3>
+      <p class="statement-description">
+        We aim to be a leader in innovation and provide cutting-edge solutions that transform businesses worldwide. 
+        Our vision is to create a future where technology enhances the lives of people globally.
+      </p>
+    </div>
+
+    <!-- Mission Statement -->
+    <div class="mission-statement">
+      <h3 class="statement-title">Our Mission</h3>
+      <p class="statement-description">
+        Our mission is to deliver high-quality products and services that empower businesses to reach their full potential. 
+        We strive to exceed customer expectations through dedication, expertise, and innovation.
+      </p>
+    </div>
+  </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof-section">
+      <h2 class="section-title">Trusted by Thousands of Clients</h2>
+      <p class="section-description">See why businesses around the world choose us.</p>
+  
+      <!-- Testimonials -->
+      <div class="testimonials-grid">
+        <div class="testimonial" *ngFor="let testimonial of testimonials">
+          <ion-icon name="star" class="star-icon"></ion-icon>
+          <p class="testimonial-message">"{{ testimonial.message }}"</p>
+          <h4 class="testimonial-author">{{ testimonial.author }}</h4>
+          <p class="testimonial-company">{{ testimonial.company }}</p>
+        </div>
+      </div>
+  
+      <!-- Client Logos -->
+      <h3 class="client-logos-title">Our Clients</h3>
+      <div class="client-logos-grid">
+        <img *ngFor="let client of clients" [src]="client.logo" alt="{{ client.name }}" class="client-logo" />
+      </div>
+    </section>
+    <app-footer></app-footer>
+</ion-content>

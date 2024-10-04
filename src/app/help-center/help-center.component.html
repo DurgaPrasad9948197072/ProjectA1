@@ -1,0 +1,39 @@
+<app-header></app-header>
+
+
+<ion-content class="dark-theme ion-padding">
+  <section class="help-center-section">
+    <h2 class="section-title">How Can We Help You?</h2>
+
+    <!-- FAQ Section -->
+    <div class="faq-section">
+      <h3 class="section-subtitle">Frequently Asked Questions</h3>
+      <div class="faq-item" *ngFor="let faq of faqs">
+        <ion-item>
+          <ion-label>
+            <h4>{{ faq.question }}</h4>
+            <p>{{ faq.answer }}</p>
+          </ion-label>
+        </ion-item>
+      </div>
+    </div>
+
+    <!-- Contact Support -->
+    <div class="contact-support">
+      <h3 class="section-subtitle">Need More Help?</h3>
+      <p>If you need further assistance, please <a href="/contact-us">Contact Us</a> or email us at <a href="mailto:support(AT)example.com">support(AT)example.com</a>.</p>
+    </div>
+
+    <!-- Guides Section -->
+    <div class="guides-section">
+      <h3 class="section-subtitle">Helpful Guides</h3>
+      <ul>
+        <li><a href="/guide1">How to use our platform</a></li>
+        <li><a href="/guide2">Step-by-step guide to product setup</a></li>
+        <li><a href="/guide3">FAQ on our services</a></li>
+      </ul>
+    </div>
+  </section>
+  <app-footer></app-footer>
+
+</ion-content>

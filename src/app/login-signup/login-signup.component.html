@@ -1,0 +1,47 @@
+<ion-content class="dark-theme">
+  <div class="modal-container">
+    <div class="close-button-container">
+      <ion-button fill="clear" class="close-button" (click)="dismissModal()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </div>
+
+    <!-- Toggle between Login and Signup -->
+    <h2 class="section-title">{{ isLogin ? 'Login' : 'Sign Up' }}</h2>
+
+    <form (ngSubmit)="onSubmit()">
+
+      <!-- Name Input for Signup -->
+      <ion-item *ngIf="!isLogin">
+        <ion-label position="floating">Name</ion-label>
+        <ion-input type="text" [(ngModel)]="name" name="name"></ion-input>
+      </ion-item>
+
+      <!-- Email Input -->
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+      </ion-item>
+
+      <!-- Password Input -->
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="!isLogin">
+        <ion-label position="floating">Confirm Password</ion-label>
+        <ion-input type="text" [(ngModel)]="cpassword" name="cpassword"></ion-input>
+      </ion-item>
+      
+      <ion-button expand="block" type="submit" color="primary">
+        {{ isLogin ? 'Login' : 'Sign Up' }}
+      </ion-button>
+    </form>
+
+    <p class="toggle-text">
+      {{ isLogin ? 'Don\'t have an account?' : 'Already have an account?' }}
+      <a (click)="toggleView()">{{ isLogin ? 'Sign Up' : 'Login' }}</a>
+    </p>
+  </div>
+</ion-content>

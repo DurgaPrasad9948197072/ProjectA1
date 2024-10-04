@@ -1,0 +1,84 @@
+<app-header></app-header>
+<ion-content class="dark-theme">
+  <!-- Shopping Cart Section -->
+  <section class="checkout-cart">
+    <h2 class="checkout-title">Your Cart</h2>
+    <div class="cart-items">
+      <ion-list>
+        <ion-item *ngFor="let item of cartItems">
+          <!-- <ion-checkbox slot="start" [(ngModel)]="item.selected"></ion-checkbox> -->
+          <ion-thumbnail slot="start">
+            <img [src]="item.image" alt="{{ item.name }}" />
+          </ion-thumbnail>
+          <ion-label>
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.price | currency }}</p>
+          </ion-label>
+          <ion-button color="danger" (click)="removeItem(item)">Remove</ion-button>
+        </ion-item>
+      </ion-list>
+    </div>
+    
+        <!-- Payment Methods -->
+        <ion-list>
+          <ion-radio-group [(ngModel)]="selectedPaymentMethod">
+            <ion-item>
+              <ion-label>Credit Card</ion-label>
+              <ion-radio slot="start" value="credit-card"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>PayPal</ion-label>
+              <ion-radio slot="start" value="paypal"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Google Pay</ion-label>
+              <ion-radio slot="start" value="google-pay"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+
+          <section class="account-section">
+            <h2 class="account-title">Account Options</h2>
+        
+            <!-- Account Creation Checkbox -->
+            <ion-item>
+              <ion-label>Create an Account</ion-label>
+              <ion-checkbox slot="start" [(ngModel)]="createAccount" (ionChange)="onCreateAccountChange($event)"></ion-checkbox>
+            </ion-item>
+        
+            <!-- Account Creation Fields -->
+            <div *ngIf="createAccount" class="account-creation-fields">
+              <ion-item>
+                <ion-label position="floating">Name</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Email</ion-label>
+                <ion-input type="email"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Password</ion-label>
+                <ion-input type="password" ></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Confirm Password</ion-label>
+                <ion-input type="password" ></ion-input>
+              </ion-item>
+            </div>
+        
+            <!-- Proceed as Guest -->
+            <div *ngIf="!createAccount" class="guest-checkout">
+              <p>You can proceed as a guest if you don't want to create an account.</p>
+            </div>
+        
+            <!-- <ion-button expand="block" color="primary" (click)="continueCheckout()">Continue to Payment</ion-button> -->
+          </section>
+          
+    <div class="cart-summary">
+      <h3>Total: {{ totalCost | currency }}</h3>
+      <ion-button expand="block" color="primary" (click)="proceedToCheckout()">Proceed to Checkout</ion-button>
+    </div>
+  </section>
+
+<app-footer></app-footer>
+</ion-content>

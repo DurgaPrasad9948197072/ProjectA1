@@ -1,0 +1,108 @@
+<app-header></app-header>
+<ion-content class="dark-theme">
+  <section class="template-preview-section">
+    <div class="template-preview-container">
+      <!-- Template Image -->
+      <div class="template-image-container">
+        <img [src]="template?.image" alt="{{ template?.name }}" class="template-image" />
+      </div>
+
+      <!-- Template Details -->
+      <div class="template-details">
+        <h2 class="template-title">{{ template?.name }}</h2>
+        <p class="template-description">{{ template?.description }}</p>
+
+        <!-- Actions -->
+        <div class="template-actions">
+          <ion-button expand="block" color="primary" href="#" target="_blank">
+            Live Preview
+          </ion-button>
+          <ion-button expand="block" color="secondary" (click)="Redirectproductscheckout()">
+            Purchase Template
+          </ion-button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="template-info-section">
+    <h2 class="section-title">{{ template?.name }} - Information</h2>
+
+    <!-- Key Features -->
+    <div class="template-features">
+      <h3 class="sub-title">Key Features</h3>
+      <ul class="feature-list">
+        <li *ngFor="let feature of featuresData">{{ feature }}</li>
+      </ul>
+    </div>
+
+    <!-- Technical Specifications -->
+    <div class="template-specs">
+      <h3 class="sub-title">Technical Specifications</h3>
+      <ul class="spec-list">
+        <li *ngFor="let spec of technicalData">{{ spec }}</li>
+      </ul>
+    </div>
+
+    <!-- Compatibility -->
+    <div class="template-compatibility">
+      <h3 class="sub-title">Compatibility</h3>
+      <p>{{ template?.compatibility }}</p>
+    </div>
+  </section>
+
+  <section class="related-templates-section">
+    <h2 class="section-title">Related Templates</h2>
+
+    <!-- Related Templates List -->
+    <div class="templates-grid">
+      <ion-card *ngFor="let relatedTemplate of relatedTemplates" class="template-card">
+        <img [src]="relatedTemplate.image" alt="{{ relatedTemplate.name }}" class="template-image" />
+        <ion-card-header>
+          <ion-card-title style="color:white;">{{ relatedTemplate.name }}</ion-card-title>
+          <p class="template-price">{{ relatedTemplate.price | currency }}</p>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-button color="primary" href="{{ relatedTemplate.link }}">View Details</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </section>
+
+  <section class="reviews-section">
+    <h2 class="section-title">Customer Reviews</h2>
+
+    <!-- Reviews List -->
+    <div class="reviews-container">
+      <div class="review-card" *ngFor="let review of reviews">
+        <div class="review-header">
+          <h3 class="reviewer-name">{{ review.reviewer }}</h3>
+          <div class="review-rating">
+            <ion-icon *ngFor="let star of getRatingStars(review.rating)" name="star" class="star"></ion-icon>
+          </div>
+        </div>
+        <p class="review-comment">{{ review.comment }}</p>
+      </div>
+    </div>
+
+    <!-- Submit Review Form -->
+    <div class="submit-review">
+      <h3 class="sub-title">Leave a Review</h3>
+      <ion-item>
+        <ion-label position="floating">Name</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Rating (1-5)</ion-label>
+        <ion-input type="number" min="1" max="5"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Your Review</ion-label>
+        <ion-textarea></ion-textarea>
+      </ion-item>
+      <ion-button expand="block" color="primary">Submit Review</ion-button>
+    </div>
+  </section>
+
+  <app-footer></app-footer>
+</ion-content>

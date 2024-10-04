@@ -1,20 +1,77 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<app-header></app-header>
+<ion-content class="ion-padding dark-theme">
+   <!-- CTA Strip Section -->
+   <!-- <section class="cta-strip-section">
+    <div class="cta-strip">
+      <div class="cta-text">
+        <p>Unlimited creative assets, all in one place. Subscribe to Mixed Hunt Templates.</p>
+      </div>
+      <ion-button color="primary" class="cta-button" routerLink="/subscribe">Let’s go!</ion-button>
+    </div>
+  </section> -->
+  <div class="hero-section">
+    <div class="overlay"></div> <!-- Add a gradient overlay for better readability -->
+    <div class="hero-content">
+      <h1 class="hero-title">Discover Premium Templates</h1>
+      <p class="hero-subtitle">Unlock a world of creativity and build your perfect website with our professional templates</p>
+      <ion-button color="light" size="large" (click)="Redirectproducts()">Browse Templates</ion-button>
+    </div>
   </div>
+
+    <!-- Featured Templates Section -->
+    <div class="featured-templates">
+      <h2 class="section-title">Featured Templates</h2>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" size-md="6" size-lg="4" *ngFor="let template of featuredTemplates">
+            <div class="template-card">
+              <img [src]="template.image" alt="{{ template.name }}" class="template-image" />
+              <h3 class="template-name">{{ template.name }}</h3>
+              <p class="template-price">$ {{ template.price }}</p>
+              <ion-button color="light" expand="block" href="/template/{{ template.id }}">View Details</ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    
+  
+
+      <!-- Featured Categories Section -->
+  <div class="featured-categories">
+    <h2 class="section-title">Explore Categories</h2>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="6" size-lg="4" *ngFor="let category of featuredCategories">
+          <div class="category-card">
+            <img [src]="category.image" alt="{{ category.name }}" class="category-image" />
+            <h3 class="category-name">{{ category.name }}</h3>
+            <ion-button color="light" expand="block" (click)="productbycategory(category.name)">Explore {{ category.name }}</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+    <!-- Newsletter Signup Section -->
+    <div class="newsletter-section">
+      <div class="newsletter-content">
+        <h2 class="section-title">Stay Updated with Our Latest Templates</h2>
+        <p class="newsletter-description">Subscribe to our newsletter and never miss out on new arrivals and exclusive offers!</p>
+    
+        <ion-grid>
+          <ion-row class="newsletter-form">
+            <ion-col size="12" size-md="8">
+              <ion-input type="email" placeholder="Enter your email" [(ngModel)]="email"></ion-input>
+            </ion-col>
+            <ion-col size="12" size-md="4">
+              <ion-button expand="block" color="light" (click)="subscribeNewsletter()">Subscribe</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+    
+    
+<app-footer></app-footer>
 </ion-content>

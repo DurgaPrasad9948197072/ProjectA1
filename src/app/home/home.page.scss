@@ -1,27 +1,348 @@
-#container {
-  text-align: center;
+.dark-theme {
+  --ion-background-color: #1a1a1a;
+  --ion-text-color: #f0f0f0;
+  --ion-color-light: #ffffff;
+}
 
+
+.cta-strip-section {
+  background-color: #141414; /* Dark background for the strip */
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for elevation */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cta-text {
+  color: #f0f0f0;
+  font-size: 1.2rem;
+  max-width: 100%; /* To prevent text from taking too much space */
+}
+
+.cta-button {
+  --background: #f39c12;
+  --background-hover: #e67e22; /* Hover color */
+  color: #ffffff;
+  font-weight: bold;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.cta-button:hover {
+  transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+.cta-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cta-text {
+    max-width: 100%;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .cta-strip {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cta-button {
+    margin-top: 10px;
+    width: 100%; /* Make the button take full width on small screens */
+  }
+}
+
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background-image: url('/assets/hero-bg.jpg'); /* Add your background image */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden; /* Make sure no elements overflow */
+}
+
+.overlay {
   position: absolute;
+  top: 0;
   left: 0;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay to enhance text visibility */
+  z-index: 1;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.hero-content {
+  position: relative;
+  z-index: 2; /* Ensure content is above the overlay */
+  text-align: center;
+  color: #ffffff;
+  padding: 0 20px;
+  animation: fadeIn 1.5s ease-out forwards; /* Apply fade-in animation */
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  opacity: 0;
+  transform: translateY(30px); /* Start with the title slightly below */
+  animation: slideUp 1s ease-out forwards 0.5s; /* Slide up animation */
 }
 
-#container a {
-  text-decoration: none;
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 1s ease-out forwards 1s; /* Slide up with delay */
 }
+
+ion-button {
+  --background: #f39c12;
+  --background-hover: #e67e22;
+  --color: #ffffff;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards 1.5s; /* Fade in after the title and subtitle */
+  transition: transform 0.3s ease; /* Smooth transition on hover */
+}
+
+ion-button:hover {
+  transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+/* Keyframes for Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+.dark-toolbar {
+  --background: #141414;
+  --ion-color-light: #f0f0f0;
+  color: #ffffff;
+}
+
+
+.featured-templates {
+  padding: 40px 20px;
+  background-color: #1f1f1f;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #f39c12;
+  margin-bottom: 30px;
+}
+
+.template-card {
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  padding: 20px;
+  color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.template-card:hover {
+  transform: translateY(-10px);
+}
+
+.template-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.template-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f0f0f0;
+  margin-bottom: 10px;
+}
+
+.template-price {
+  font-size: 1.2rem;
+  color: #f39c12;
+  margin-bottom: 15px;
+}
+
+ion-button {
+  --background: #f39c12;
+  --background-hover: #e67e22;
+  --color: #ffffff;
+}
+
+.featured-categories {
+  padding: 40px 20px;
+  background-color: #1f1f1f;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #f39c12;
+  margin-bottom: 30px;
+}
+
+.category-card {
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  padding: 20px;
+  color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.category-card:hover {
+  transform: translateY(-10px);
+}
+
+.category-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.category-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f0f0f0;
+  margin-bottom: 10px;
+}
+
+.testimonials-section {
+  padding: 40px 20px;
+  background-color: #1f1f1f;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #f39c12;
+  margin-bottom: 30px;
+}
+
+.testimonial-card {
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  padding: 30px;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  object-fit: cover;
+}
+
+.testimonial-text {
+  font-style: italic;
+  margin-bottom: 20px;
+  color: #f0f0f0;
+}
+
+.testimonial-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #f39c12;
+}
+
+.testimonial-role {
+  font-size: 1.1rem;
+  color: #b3b3b3;
+}
+
+ion-slides {
+  --bullet-background: #f39c12;
+  --bullet-background-active: #e67e22;
+}
+
+
+
+
+
+
+
+
+.newsletter-section {
+  padding: 60px 20px;
+  background-color: #141414;
+  color: #f0f0f0;
+  text-align: center;
+  border-top: 1px solid #333333;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #f39c12;
+  margin-bottom: 20px;
+}
+
+.newsletter-description {
+  font-size: 1.2rem;
+  color: #b3b3b3;
+  margin-bottom: 30px;
+}
+
+.newsletter-form {
+  justify-content: center;
+}
+
+ion-input {
+  --background: #2a2a2a;
+  --color: #f0f0f0;
+  --placeholder-color: #b3b3b3;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+ion-button {
+  --background: #f39c12;
+  --background-hover: #e67e22;
+  --color: #ffffff;
+}
+
+

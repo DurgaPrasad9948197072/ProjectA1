@@ -1,0 +1,156 @@
+.dark-theme {
+    --ion-background-color: #1a1a1a; /* Dark background */
+    --ion-text-color: #f0f0f0; /* Light text */
+  }
+  
+  .dark-toolbar {
+    --background: #141414; /* Dark toolbar */
+    --ion-color-light: #f0f0f0;
+    color: #ffffff;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    color: #f39c12; /* Bright accent color */
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .section-description {
+    text-align: center;
+    color: #b3b3b3;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+  }
+  
+  .contact-form-section {
+    max-width: 600px;
+    margin: 0 auto; /* Center the form */
+    text-align: center;
+  }
+  
+  ion-item {
+    --background: rgba(42, 42, 42, 0.9); /* Semi-transparent input background */
+    --color: #f0f0f0; /* Input text color */
+    margin-bottom: 15px;
+    border-radius: 5px;
+  }
+  
+  ion-input, ion-textarea {
+    --placeholder-color: #b3b3b3;
+    --color: #ffffff; /* Input text color */
+  }
+  
+  ion-button {
+    --background: #f39c12; /* Submit button background */
+    --background-hover: #e67e22; /* Hover effect for the button */
+    --color: #ffffff; /* Button text color */
+    margin-top: 15px;
+  }
+  
+  .success-message {
+    margin-top: 20px;
+    color: #28a745;
+    font-size: 1.2rem;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .contact-form-section {
+      max-width: 90%; /* Ensure form is responsive on smaller screens */
+    }
+  }
+  
+
+.section-title {
+    font-size: 2rem;
+    color: #f39c12;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .section-description {
+    text-align: center;
+    color: #b3b3b3;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+  }
+  
+  .location-map-section {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .map-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .location-map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .location-map-section {
+      max-width: 100%;
+      padding: 0 10px;
+    }
+  }
+
+  .section-title {
+    font-size: 2rem;
+    color: #f39c12; /* Bright accent color */
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .section-description {
+    text-align: center;
+    color: #b3b3b3;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+  }
+  
+  .social-media-section {
+    text-align: center;
+  }
+  
+  .social-media-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between social media icons */
+  }
+  
+  .social-icon ion-icon {
+    font-size: 2.5rem; /* Size of social media icons */
+    color: #f0f0f0; /* Default icon color */
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .social-icon:hover ion-icon {
+    color: #f39c12; /* Hover effect to change color */
+    transform: scale(1.1); /* Slightly enlarge icon on hover */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .social-media-links {
+      gap: 15px; /* Reduce gap on smaller screens */
+    }
+  
+    .social-icon ion-icon {
+      font-size: 2rem; /* Smaller icon size for mobile screens */
+    }
+  }

@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar class="dark-toolbar">
+    <ion-title>Blog - Resources</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="dark-theme ion-padding">
+  <section class="posts-related-section">
+    <h2 class="section-title">Posts Related to Templates</h2>
+
+    <!-- Posts List -->
+    <div class="posts-grid">
+      <ion-card *ngFor="let post of posts" class="post-card">
+        <img [src]="post.image" alt="{{ post.title }}" class="post-image" />
+        <ion-card-header>
+          <ion-card-title>{{ post.title }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>{{ post.excerpt }}</p>
+          <ion-button fill="clear" color="primary" href="/post/{{ post.id }}">Read More</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </section>
+
+  <section class="categories-tags-section">
+    <h2 class="section-title">Browse by Categories and Tags</h2>
+
+    <!-- Categories Section -->
+    <div class="categories-grid">
+      <div class="category-card" *ngFor="let category of categories">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{ category.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-button fill="clear" color="primary" href="/category/{{ category.id }}">
+              View {{ category.name }}
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+
+    <!-- Tags Section -->
+    <div class="tags-grid">
+      <h3 class="sub-title">Tags</h3>
+      <ion-chip *ngFor="let tag of tags" (click)="filterByTag(tag)">
+        {{ tag }}
+      </ion-chip>
+    </div>
+  </section>
+
+  <section class="subscribe-section">
+    <h2 class="section-title">Stay Updated with Our Latest Templates</h2>
+    <p class="section-description">Subscribe to receive the latest news and updates about our premium templates and resources.</p>
+
+    <!-- Subscription Form -->
+    <form (ngSubmit)="subscribe()">
+      <ion-item>
+        <ion-label position="floating">Your Email</ion-label>
+        <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" color="primary" type="submit">
+        Subscribe
+      </ion-button>
+    </form>
+
+    <!-- Success Message -->
+    <div *ngIf="subscriptionSuccess" class="success-message">
+      <p>Thank you for subscribing! Check your inbox for the latest updates.</p>
+    </div>
+  </section>
+  
+</ion-content>
