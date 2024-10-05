@@ -12,22 +12,27 @@
   display: flex;
 }
 
+
+.mobile-menu-button {
+  display: none;
+}
+
+
+
 /* Show menu button on mobile and hide desktop buttons */
 @media (max-width: 768px) {
-  ion-menu-button {
-    display: block; /* Show menu icon on mobile */
+  .mobile-menu-button {
+    display: inline-flex;
   }
-
   .desktop-menu-buttons {
-    display: none; /* Hide desktop buttons on mobile */
+    display: none;
   }
 }
 /* Desktop view: Hide menu button, show desktop buttons */
 @media (min-width:961px)  {
-  ion-menu-button {
-    display: none; /* Hide menu icon on desktop */
+  .mobile-menu-button {
+    display: none;
   }
-
   .desktop-menu-buttons {
     display: flex; /* Show desktop buttons on desktop */
     gap: 10px; /* Add some spacing between desktop buttons */

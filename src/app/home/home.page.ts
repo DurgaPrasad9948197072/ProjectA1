@@ -252,12 +252,11 @@ export class HomePage {
   }
 
   Redirectproducts(){
-    // this.router.navigate(['/products'], {replaceUrl:true});
-    // this.router.navigate(['/products']);
     this.router.navigateByUrl('/dummy', { skipLocationChange: true }).then(() => {
       this.router.navigate(['/products']);
     });
   }
+  
   productbycategory(category:string){
     this.router.navigate(['/products'], {state: { category: category } });
   }

@@ -1,41 +1,68 @@
+<!-- <ion-header>
+  <ion-toolbar class="dark-toolbar">
+    <ion-title>Settings</ion-title>
+  </ion-toolbar>
+</ion-header> -->
 <app-header></app-header>
 <ion-content class="dark-theme ion-padding">
-  <section class="settings-navigation">
-    <ion-list>
-      <ion-item button (click)="selectSection('account')" [class.active]="isSectionActive('account')">
-        Account Settings
-      </ion-item>
-      <ion-item button (click)="selectSection('billing')" [class.active]="isSectionActive('billing')">
-        Billing & Payments
-      </ion-item>
-      <ion-item button (click)="selectSection('orders')" [class.active]="isSectionActive('orders')">
-        Order History
-      </ion-item>
-      <ion-item button (click)="selectSection('privacy')" [class.active]="isSectionActive('privacy')">
-        Privacy & Security
-      </ion-item>
-    </ion-list>
-  </section>
+  <div class="settings-page">
+    <!-- Sidebar for settings navigation -->
+    <nav class="settings-sidebar">
+      <ion-list>
+        <ion-item button (click)="selectSection('profile')" [class.active]="selectedSection === 'profile'">
+          <!-- <ion-icon name="person-outline" slot="start"></ion-icon> -->
+          View Profile
+        </ion-item>
+        <ion-item button (click)="selectSection('billings')" [class.active]="selectedSection === 'billings'">
+          <!-- <ion-icon name="settings-outline" slot="start"></ion-icon> -->
+          Billings
+        </ion-item>
+        <ion-item button (click)="selectSection('orginzation')" [class.active]="selectedSection === 'orginzation'">
+          <!-- <ion-icon name="key-outline" slot="start"></ion-icon> -->
+          Orginzation 
+        </ion-item>
+        <ion-item button (click)="selectSection('logout')" [class.active]="selectedSection === 'logout'">
+          <!-- <ion-icon name="log-out-outline" slot="start"></ion-icon> -->
+          Log Out
+        </ion-item>
+      </ion-list>
 
-  <section class="settings-content">
-    <div *ngIf="isSectionActive('account')">
-      <h2>Account Settings</h2>
-      <p>Update your account details, username, and more.</p>
-    </div>
+      <!-- Profile info -->
+      <div class="profile-section">
+        <ion-item lines="none">
+          <ion-avatar slot="start">
+            <img src="assets/profile-pic.jpg" alt="User Avatar" />
+          </ion-avatar>
+          <ion-label>
+            <h3>Sienna Hewitt</h3>
+            <p>siennaATuntitledui.com</p>
+          </ion-label>
+        </ion-item>
+      </div>
+    </nav>
 
-    <div *ngIf="isSectionActive('billing')">
-      <h2>Billing & Payments</h2>
-      <p>Manage your billing information, payment methods, and transactions.</p>
-    </div>
+    <!-- Settings content area -->
+    <div class="settings-content">
+      <div *ngIf="selectedSection === 'profile'">
+        <h2>Profile</h2>
+        <!-- Profile details here -->
+      </div>
 
-    <div *ngIf="isSectionActive('orders')">
-      <h2>Order History</h2>
-      <p>View your past orders and download invoices.</p>
-    </div>
+      <div *ngIf="selectedSection === 'billings'">
+        <h2>Billings</h2>
+        <!-- Account settings here -->
+      </div>
 
-    <div *ngIf="isSectionActive('privacy')">
-      <h2>Privacy & Security</h2>
-      <p>Control your privacy settings, manage two-factor authentication, and more.</p>
+      <div *ngIf="selectedSection === 'orginzation'">
+        <h2>Orginzation Details</h2>
+        <!-- Keyboard shortcuts settings here -->
+      </div>
+
+      <div *ngIf="selectedSection === 'logout'">
+        <h2>Logging Out...</h2>
+        <!-- Log out handling here -->
+      </div>
     </div>
-  </section>
+  </div>
+  <app-footer></app-footer>
 </ion-content>

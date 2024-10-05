@@ -17,18 +17,9 @@ import { FooterComponent } from '../shared/footer/footer.component';
   providers: [ModalController],
 })
 export class SettingsComponent  {
-  selectedSection: string = 'account'; // Default section to show
+  selectedSection: string = 'profile'; // Default section
 
-  constructor() {}
-
-  // Method to switch between settings sections
   selectSection(section: string) {
     this.selectedSection = section;
   }
-
-  // Method to check if the current section is active
-  isSectionActive(section: string): boolean {
-    return this.selectedSection === section;
-  }
-
 }

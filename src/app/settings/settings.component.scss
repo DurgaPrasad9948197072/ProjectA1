@@ -1,56 +1,81 @@
 .dark-theme {
-    --ion-background-color: #1a1a1a;
-    --ion-text-color: #f0f0f0;
+  --ion-background-color: #1a1a1a;
+  --ion-text-color: #f0f0f0;
+}
+
+.dark-toolbar {
+  --background: #141414;
+  --ion-color-light: #f0f0f0;
+}
+
+.settings-page {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.settings-sidebar {
+  width: 250px;
+  background-color: #141414;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.settings-sidebar ion-item {
+  --background: #2a2a2a;
+  --color: #f0f0f0;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  transition: background 0.3s;
+}
+
+.settings-sidebar ion-item.active {
+  --background: #f39c12;
+  --color: #ffffff;
+}
+
+.settings-sidebar ion-item:hover {
+  --background: #3c3c3c;
+}
+
+.profile-section {
+  margin-top: 30px;
+}
+
+.profile-section ion-item {
+  --background: transparent;
+}
+
+.profile-section ion-avatar {
+  width: 50px;
+  height: 50px;
+}
+
+.settings-content {
+  flex: 1;
+  background-color: #1f1f1f;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.settings-content h2 {
+  color: #f39c12;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .settings-page {
+    flex-direction: column;
   }
-  
-  .dark-toolbar {
-    --background: #141414;
-    --ion-color-light: #f0f0f0;
-    color: #ffffff;
+
+  .settings-sidebar {
+    width: 100%;
   }
-  
-  .settings-navigation {
-    max-width: 300px;
-    margin-bottom: 30px;
-  }
-  
-  .settings-navigation ion-item {
-    --background: #2a2a2a;
-    --color: #f0f0f0;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
-  
-  .settings-navigation ion-item.active {
-    --background: #f39c12; /* Highlight active section */
-    --color: #ffffff;
-  }
-  
+
   .settings-content {
-    background-color: #2a2a2a;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    color: #f0f0f0;
+    width: 100%;
   }
-  
-  .settings-content h2 {
-    color: #f39c12; /* Section title color */
-  }
-  
-  .settings-content p {
-    color: #b3b3b3;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .settings-navigation {
-      max-width: 100%;
-      margin-bottom: 20px;
-    }
-  
-    .settings-content {
-      padding: 15px;
-    }
-  }
-  
+}

@@ -6,7 +6,7 @@ import { LoginSignupComponent } from '../../login-signup/login-signup.component'
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { addIcons } from 'ionicons';
-import { cartOutline,callOutline,pricetagsOutline,starOutline,settingsOutline} from 'ionicons/icons';
+import { cartOutline,callOutline,pricetagsOutline,starOutline,settingsOutline,menuOutline} from 'ionicons/icons';
 
 @Component({
   selector: 'app-header',
@@ -30,19 +30,20 @@ export class HeaderComponent {
       'call-outline' : callOutline,
       'pricetags-outline':pricetagsOutline,
       'star-outline':starOutline,
-      'settings-outline':settingsOutline 
+      'settings-outline':settingsOutline,
+      'menu-outline':menuOutline 
     });
     this.loginenable = localStorage.getItem("house_id");  
-     // Listen to navigation events
-     this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe(() => {
-      // Close the menu on navigation
-      this.menuController.close('main-menu');
-    });
+
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.router.events
+    .pipe(filter(event => event instanceof NavigationEnd))
+    .subscribe(() => {
+       this.closeMenu();
+    });
+  }
   
   async openLoginSignupModal() {
     const modal = await this.modalController.create({
@@ -53,11 +54,27 @@ export class HeaderComponent {
     return await modal.present();
   }
 
-  Redirect(path:any){
-    // this.menuController.close();
-    this.menuController.close('main-menu');
-    this.router.navigate(['/'+path]);
-    // this.menuController.close();
+
+
+  async Redirect(page: string) {
+    await this.closeMenu();
+    this.router.navigate(['/'+page]);
+  }
+
+   openMenu() {
+    const menu = document.querySelector('ion-menu');
+    if (menu) {
+      menu.open();
+      console.log("menu");
+    }
+  }
+
+  closeMenu() {
+    const menu = document.querySelector('ion-menu');
+    if (menu) {
+      console.log("menu");
+      menu.close();
+    }
   }
   
 }
